@@ -1,43 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-<style>
-body {
-	padding-top: 50px;
-	padding-left: 30px;
-}
-textarea {
-	box-sizing: border-box;
-	border: 1px solid;
-	resize: none;
-	padding: 20px;
-}
-#button {
- 	border-radius: 7px;	
-}
-</style>
 <form action="" method="POST">
 	{{ form.hidden_tag() }}	
-		
-	<p>
-		{{ form.one.label }}
-		{{ form.one(size=10) }}
-	</p>
-	
-	<p>
-		{{ form.two.label }}
-		{{ form.two(size=10) }}
-	</p>
-	
-	<p>
-	<input id= "button" type="submit" name="button" value="+">
-	<input id="button" type="submit" name="button" value="-">
-	<input id="button" type="submit" name="button" value="X">
-	<input id="button" type="submit" name="button" value="/">
-	<input id="button" type="submit" name="button" value="Clear">
-	</p>
-	
-	<p>Result</p>
+	<table>	
+	<tr>
+		<td colspan="3">{{ form.one.label }}</td>
+		<td colspan="2" style="padding-left: 50px;">{{ form.one(size=10) }}</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>{% for error in form.one.errors %}
+		<span style="color: red;">Please, enter an integer.</span>
+		{% endfor %}</td>
+	</tr>
+	<tr>
+		<td colspan="3">{{ form.two.label }}</td>
+		<td colspan="2" style="padding-left: 50px;">{{ form.two(size=10) }}</td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td>{% for error in form.two.errors %}
+		<span style="color: red;">Please, enter an integer.</span>
+		{% endfor %}</td>
+	</tr>
+	<tr>
+	<td><input id= "button" type="submit" name="button" value="+"></td>
+	<td><input id="button" type="submit" name="button" value="-"></td>
+	<td><input id="button" type="submit" name="button" value="X"></td>
+	<td><input id="button" type="submit" name="button" value="/"></td>
+	<td><input id="button" type="submit" name="button" value="Clear"></td>
+	<td></td>
+	</tr>
+	</table>
+	<br>Result<br>
 	<textarea>{{ output }}</textarea>
-	
 </form>
 {% endblock %}
