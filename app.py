@@ -4,7 +4,7 @@ from operations import Operations
 app = Flask(__name__)
 app.config['SECRET_KEY']='tempconfig'
 
-"""The app blah blah"""
+"""The application is a basic calculator that has a single server route called index. The input from the user is handled through a python Flask form with the backend processing done through python. All files associated with the UI are within the templates directory. To run the application locally, the main file can be exported as app.py (export FLASK_APP="app.py" and then invoked through the command: flask run"""
 
 @app.route('/', methods=['GET', 'POST'])
 def index():	
