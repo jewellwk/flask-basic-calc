@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block content %}
+<style>
+body {
+	padding-top: 50px;
+	padding-left: 30px;
+}
+textarea {
+	box-sizing: border-box;
+	border: 1px solid;
+	resize: none;
+	padding: 20px;
+}
+#button {
+ 	border-radius: 7px;	
+}
+</style>
+<form action="" method="POST">
+	{{ form.hidden_tag() }}	
+		
+	<p>
+		{{ form.one.label }}
+		{{ form.one(size=10) }}
+	</p>
+	
+	<p>
+		{{ form.two.label }}
+		{{ form.two(size=10) }}
+	</p>
+	
+	<p>
+	<input id= "button" type="submit" name="button" value="+">
+	<input id="button" type="submit" name="button" value="-">
+	<input id="button" type="submit" name="button" value="X">
+	<input id="button" type="submit" name="button" value="/">
+	<input id="button" type="submit" name="button" value="Clear">
+	</p>
+	
+	<p>Result</p>
+	<textarea>{{ output }}</textarea>
+	
+</form>
+{% endblock %}
