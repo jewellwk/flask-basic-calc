@@ -4,8 +4,6 @@ from operations import Operations
 app = Flask(__name__)
 app.config['SECRET_KEY']='tempconfig'
 
-
-
 @app.route('/', methods=['GET', 'POST'])
 def index():	
 	form = Operations()
@@ -19,4 +17,3 @@ def index():
 			return redirect(url_for('index'))
 	
 	return render_template("operations.html", output=output, form=form)
-	
